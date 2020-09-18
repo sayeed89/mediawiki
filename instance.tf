@@ -3,7 +3,7 @@
 resource "aws_instance" "mediawiki-node" {
         ami = "${var.ami}"
         instance_type = "${var.instance_type}"
-        key_name = "going"
+        key_name = "${var.key}"
         subnet_id = aws_subnet.mediawiki-subnet.id
         vpc_security_group_ids = [
                         aws_security_group.mediawiki-security-group.id,
