@@ -1,0 +1,67 @@
+---
+
+ - name: "Installation of mediawiki"
+   hosts: mediawiki_server
+   become: true
+   tasks:
+       - name: "Installing the packages"
+         yum:
+                 name: '{{ item }}'
+                 state: latest
+                 update_cache: True
+         with_items:
+                 - httpd
+                 - php
+                 - php-mysql
+                 - php-gd
+                 - php-xml
+                 - mariadb-server
+                 - mariadb
+                 - php-mbstring
+
+       - name: "Starting mysql and httpd services"
+         systemd:
+                 name: '{{ item }}'
+                 state: started
+                 enabled: yes
+         with_items:
+                 - mariadb
+                 - httpd
+
+       - name: "Creating folder for mediawiki"
+         file:
+                 path: /home/mediawiki/
+                 state: directory
+                 mode: '0755'
+                 recurse: yes
+
+       - name: "Downloading & Extracting mediawiki tar file"
+         unarchive:
+                 # 			src: https://releases.wikimedia.org/mediawiki/1.34/mediawiki-1.34.2.tar.gz
+                 src: https://releases.wikimedia.org/mediawiki/1.10/mediawiki-1.10.4.tar.gz
+                 dest: /home/mediawiki/
+                 remote_src: yes
+
+       - name: "Creating the softlink"
+         file:
+                 src: /home/mediawiki/mediawiki-1.10.4
+                 dest: /var/www/html/mediawiki
+                 owner: apache
+                 group: apache
+                 state: link
+         notify:
+                 restart httpd
+
+       - name: "Changing the permission to apache"
+         file:
+                 path: /home/mediawiki/mediawiki-1.10.4
+                 owner: apache
+                 group: apache
+                 mode: '0766'
+                 recurse: yes
+
+   handlers:
+       - name: restart httpd
+         systemd:
+                 name: httpd
+                 state: restarted
