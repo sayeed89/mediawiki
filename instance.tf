@@ -9,7 +9,6 @@ resource "aws_instance" "mediawiki-node" {
                         aws_security_group.mediawiki-security-group.id,
         ]
         associate_public_ip_address = "true"
-       # user_data = "${data.template_file.userdata.rendered}"
 
         root_block_device {
                 delete_on_termination = "true"
