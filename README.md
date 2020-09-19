@@ -22,4 +22,3 @@ Step-4:
   
 Step-5:
   mediawiki_configure.yml, This is a ansible-playbook, this is for installing and configuring the MediaWiki. As per this doc https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Red_Hat_Linux
-net
