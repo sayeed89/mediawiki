@@ -9,7 +9,7 @@ jobs:
   iscan-job:
       runs-on: ubuntu-latest
       container:    
-        image: 8801302644/unify-iscan:latest
+        image: 8801302644/unify-iscan:working
       steps:
       - name: super-step
         shell: sh
