@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: 'devopsutils/sl-iscan'
-          token: 'iMZirhTX5Y_nYA4Th8CL'
+          token: Gy9Wcbbo9PbwCsyyVw5C
           path: 'iscan'
       - name: Show results
         run: |
