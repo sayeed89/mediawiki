@@ -8,9 +8,11 @@ on:
 jobs:
   iscan-job:
       runs-on: ubuntu-latest
-      container:    
+  new-job:
+    runs-on: ubuntu-latest
+    container:    
         image: 8801302644/unify-iscan:working
-      steps:
+    steps:
       - name: super-step
         shell: sh
         run: |
