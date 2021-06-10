@@ -17,3 +17,6 @@ jobs:
         - name: docker images list
           run: |
             docker images
+        - name: running docker container
+          run: |
+            docker run mediawiki-iscan:latest
