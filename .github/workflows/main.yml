@@ -11,7 +11,10 @@ jobs:
     name: Checkout repo
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: 'mediawiki'
       - name: Show results
         run: |
+          ls -ltrh mediawiki/
           pwd
           ls -l
