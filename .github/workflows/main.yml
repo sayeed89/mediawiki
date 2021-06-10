@@ -2,21 +2,18 @@ name: Scaning the code using iscan
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, edited]
+    types: [opened, synchronize, reo pened, edited]
   push:
-
+  
 jobs:
-  iscan-job:
+   iscan-job:
       runs-on: ubuntu-latest
       steps:
-        - run: |
-            echo "This is VM"
-  new-job:
-    runs-on: ubuntu-latest
-    container:    
-        image: 8801302644/unify-iscan:working
-    steps:
-      - name: super-step
-        shell: sh
-        run: |
-            ls -l
+        - name: Check Out Repo 
+          uses: actions/checkout@v2
+        - name: Building the docker image
+          run: |
+            docker build -t mediawiki-iscan:latest .
+        - name: docker images list
+          run: |
+            docker images
