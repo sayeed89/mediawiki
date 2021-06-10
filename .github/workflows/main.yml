@@ -12,5 +12,6 @@ jobs:
         image: 8801302644/unify-iscan:latest
       steps:
       - name: super-step
+        shell: sh
         run: |
             ls -l
