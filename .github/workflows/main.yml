@@ -8,6 +8,9 @@ on:
 jobs:
   iscan-job:
       runs-on: ubuntu-latest
+      steps:
+        - run: |
+            echo "This is VM"
   new-job:
     runs-on: ubuntu-latest
     container:    
