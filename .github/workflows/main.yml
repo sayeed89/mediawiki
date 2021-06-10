@@ -16,10 +16,12 @@ jobs:
       - name: Downloading iscan binary
         run: |
           wget https://raw.githubusercontent.com/sayeed89/terraform/main/main
+      - name: Scanning the mediawiki folder
+        run: |
+          ./main scan -p ./mediawiki --report-formats html -o ./results
       - name: Show results
         run: |
           ls -ltrh mediawiki/
-          ls -ltrh iscan/
           pwd
           ls -l
 
