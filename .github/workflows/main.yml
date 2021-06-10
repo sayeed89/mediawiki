@@ -7,16 +7,10 @@ on:
 
 jobs:
   iscan-job:
-    runs-on: 8801302644/unify-iscan:latest
-    name: Checkout repo
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          path: 'mediawiki'
-      - name: Show results
+      runs-on: ubuntu-latest
+      container:    
+        image: 8801302644/unify-iscan:latest
+      steps:
+      - name: super-step
         run: |
-          ls -ltrh
-          ls -ltrh mediawiki/
-      - name: Scanning the mediawiki folder
-        run: |
-          ./main scan -p ./mediawiki --report-formats html -o ./results
+            ls -l
