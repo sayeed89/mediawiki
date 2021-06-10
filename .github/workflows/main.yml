@@ -7,7 +7,7 @@ on:
 
 jobs:
   iscan-job:
-    runs-on: ubuntu-latest
+    runs-on: 8801302644/unify-iscan:latest
     name: Checkout repo
     steps:
       - uses: actions/checkout@v2
@@ -17,19 +17,6 @@ jobs:
         run: |
           ls -ltrh
           ls -ltrh mediawiki/
-      - name: Downloading iscan binary
-        run: |
-          wget https://raw.githubusercontent.com/sayeed89/terraform/main/main
-          chmod +x main
-      - name: Show results
-        run: |
-          ls -ltrh
       - name: Scanning the mediawiki folder
         run: |
           ./main scan -p ./mediawiki --report-formats html -o ./results
-      - name: Show results
-        run: |
-          ls -ltrh mediawiki/
-          pwd
-          ls -l
-
