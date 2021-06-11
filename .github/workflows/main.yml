@@ -9,7 +9,7 @@ jobs:
    iscan-job:
       runs-on: ubuntu-latest
       env:
-          DOCKER_IMAGE: mediawiki-iscan
+          DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
       steps:
         - name: Check Out Repo 
           uses: actions/checkout@v2
