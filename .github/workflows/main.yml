@@ -10,6 +10,7 @@ jobs:
       runs-on: ubuntu-latest
       env:
           DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
+          ISCAN_PATH: ${{ secrets.ISCAN_PATH }}
       steps:
         - name: Check Out Repo 
           uses: actions/checkout@v2
@@ -21,4 +22,4 @@ jobs:
             docker images
         - name: running docker container
           run: |
-            docker run "$DOCKER_IMAGE":latest
+            docker run -e ISCAN_PATH='$ISCAN_PATH' "$DOCKER_IMAGE":latest
