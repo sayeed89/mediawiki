@@ -25,5 +25,4 @@ jobs:
             docker images
         - name: running docker container
           run: |
-            docker run -e ISCAN_PATH='$ISCAN_PATH' "$DOCKER_IMAGE":latest
-
+            docker run "$DOCKER_IMAGE":latest
