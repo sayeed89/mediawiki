@@ -12,20 +12,13 @@ jobs:
           DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
           ISCAN_PATH: ${{ secrets.ISCAN_PATH }}
       steps:
-        - name: Check Out the Repo 
+        - name: CheckOut the Repo 
           uses: actions/checkout@v2
-        - name: environment
+          with:
+            path: 'scan_repo'
+        - name: Pull iscan code
+          uses:  sayeed89/unify-iscan-github-action@main
+        - name: list
           run: |
-              env
-        - name: Building the docker image
-          run: |
-            docker build -t "$DOCKER_IMAGE":latest .
-        - name: docker images list
-          run: |
-            docker images
-        - name: running docker container
-          run: |
-            docker run "$DOCKER_IMAGE":latest
-        - name: listing docker container
-          run: |  
-            docker ps -a
+            ls -ltrh
+            ls -ltrh scan_repo      
