@@ -12,7 +12,6 @@ jobs:
         - name: CheckOut the Repo 
           uses: actions/checkout@v2
           with:
-            path: 'scan_repo'
             fetch-depth: 0
         - name: list before
           run: |
