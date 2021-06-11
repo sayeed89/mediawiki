@@ -9,6 +9,8 @@ jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
+    env:
+      INPUT_PROJECTBASEDIR: /github/workspace
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -19,3 +21,5 @@ jobs:
           env
       - name: Iscan Scan
         uses:  sayeed89/unify-iscan-github-action@main
+        env:
+          INPUT_PROJECTBASEDIR: /github/workspace
