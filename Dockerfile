@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY . ./iscan/
 
+RUN chmod +x /app/iscan/entrypoint.sh
 #CMD ["./main", "scan", "-p", "/app/iscan", "--report-formats", "html", "-o", "./results"]
 
-ENTRYPOINT [./entrypoint.sh]
+ENTRYPOINT [/app/iscan/entrypoint.sh]
