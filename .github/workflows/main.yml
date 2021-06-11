@@ -16,5 +16,6 @@ jobs:
         run: |
           pwd
           ls -ltrh
+          env
       - name: Iscan Scan
         uses:  sayeed89/unify-iscan-github-action@main
