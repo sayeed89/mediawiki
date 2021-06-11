@@ -1,6 +1,6 @@
 FROM 8801302644/unify-iscan:working
 
-ENV ISCAN_PATH
+ENV ISCAN_PATH=$ISCAN_PATH
 
 WORKDIR /app
 
