@@ -17,9 +17,4 @@ jobs:
           run: |
             ls -ltrh
             ls -ltrh scan_repo              
-        - name: Pull iscan code
-          uses:  sayeed89/unify-iscan-github-action@main
-        - name: list after
-          run: |
-            ls -ltrh
-            ls -ltrh scan_repo      
+   
