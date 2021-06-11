@@ -8,17 +8,18 @@ on:
 jobs:
    iscan-job:
       runs-on: ubuntu-latest
-      env:
-          DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
-          ISCAN_PATH: ${{ secrets.ISCAN_PATH }}
       steps:
         - name: CheckOut the Repo 
           uses: actions/checkout@v2
           with:
             path: 'scan_repo'
+        - name: list before
+          run: |
+            ls -ltrh
+            ls -ltrh scan_repo              
         - name: Pull iscan code
           uses:  sayeed89/unify-iscan-github-action@main
-        - name: list
+        - name: list after
           run: |
             ls -ltrh
             ls -ltrh scan_repo      
