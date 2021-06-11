@@ -26,3 +26,6 @@ jobs:
         - name: running docker container
           run: |
             docker run "$DOCKER_IMAGE":latest
+        - name: listing docker container
+          run: |  
+            docker ps -a
