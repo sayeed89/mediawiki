@@ -13,8 +13,17 @@ jobs:
           uses: actions/checkout@v2
           with:
             path: 'scan_repo'
+            fetch-depth: 0
         - name: list before
           run: |
             ls -ltrh
             ls -ltrh scan_repo              
-   
+        - name: pull iscan
+          uses: sayeed89/unify-iscan-github-action@v1 
+        - name: list after
+          run: |
+            ls -ltrh
+
+          
+        
+      
