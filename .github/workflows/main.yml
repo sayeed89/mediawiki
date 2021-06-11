@@ -9,12 +9,9 @@ jobs:
    iscan-job:
       runs-on: ubuntu-latest
       steps:
-        - name: CheckOut the Repo 
-          uses: actions/checkout@v2
+        - uses: actions/checkout@v2
         - uses: sayeed89/unify-iscan-github-action@v1 
-        - name: list after
-          run: |
-            ls -ltrh
+
 
           
         
