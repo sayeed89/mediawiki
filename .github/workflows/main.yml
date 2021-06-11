@@ -10,8 +10,13 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: list
+        run: |
+          pwd
+          ls -ltrh
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarCloud Scan
+      - name: Iscan Scan
         uses:  sayeed89/unify-iscan-github-action@main
