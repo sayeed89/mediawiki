@@ -12,7 +12,7 @@ jobs:
           DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
           ISCAN_PATH: ${{ secrets.ISCAN_PATH }}
       steps:
-        - name: Check Out Repo 
+        - name: Check Out the Repo 
           uses: actions/checkout@v2
         - name: Building the docker image
           run: |
@@ -23,3 +23,4 @@ jobs:
         - name: running docker container
           run: |
             docker run -e ISCAN_PATH='$ISCAN_PATH' "$DOCKER_IMAGE":latest
+
