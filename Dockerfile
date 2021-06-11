@@ -4,4 +4,6 @@ WORKDIR /app
 
 COPY . ./iscan/
 
-CMD ["./main", "scan", "-p", "/app/iscan", "--report-formats", "html", "-o", "./results"]
+#CMD ["./main", "scan", "-p", "/app/iscan", "--report-formats", "html", "-o", "./results"]
+
+ENTRYPOINT [./entrypoint.sh]
